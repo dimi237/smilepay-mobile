@@ -1,0 +1,7 @@
+{
+  "name": "smilepay",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

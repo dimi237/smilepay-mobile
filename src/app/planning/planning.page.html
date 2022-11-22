@@ -1,0 +1,79 @@
+<ion-header collapse="fade">
+  <ion-toolbar>
+    <ion-item lines="none">
+      <ion-icon slot="start" name="chevron-back-outline" class="back" routerLink="/home"></ion-icon>
+      <ion-label> My Planning </ion-label>
+      <ion-icon slot="end" name="create-outline" size="large"></ion-icon>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <div class="balance">
+      ${{balance.planified}} / <span class="strong"> ${{balance.sold}}</span>
+    </div>
+    <div class="stat"><span class="strong {{balance.type === 'exceding'?'success':'danger'}}">{{balance.type ===
+        'exceding'?'+':'-'}}{{balance.diff}}% </span> <span class="medium"> &nbsp; than last week</span></div>
+
+    <div class="dashboard">
+      <div class="header">
+        <div class="text">
+          <h2 class="title">Buy a house</h2>
+          <h4 class="date medium">10 may 2022</h4>
+        </div>
+        <div class="button">
+          <ion-icon name="ellipsis-horizontal-sharp" color="medium"></ion-icon>
+        </div>
+      </div>
+
+      <div class="progress">
+        <h3>15%</h3>
+        <ion-progress-bar [value]="0.15"></ion-progress-bar>
+      </div>
+
+      <div class="planning">
+        <ion-icon name="calendar-clear-sharp"></ion-icon>&nbsp; Target for 30 December 2022
+      </div>
+    </div>
+
+    <div class="transaction-container">
+      <div class="tansaction-title">
+        <div class="label">Transaction</div>
+        <div class="tag">
+          <ion-icon name="calendar-clear-sharp" color="primary"></ion-icon>
+          <ion-select interface="popover" value="weekly" placeholder="Select periodicity">
+            <ion-select-option value="daily">Daily</ion-select-option>
+            <ion-select-option value="weekly">Weekly</ion-select-option>
+            <ion-select-option value="monthly">Monthly</ion-select-option>
+          </ion-select>
+        </div>
+      </div>
+    </div>
+    <div class="list">
+      <div class="transaction-container" *ngFor="let transaction of transactions">
+        <div class="transcation-item">
+          <div class="logo">
+            <ion-icon color="primary"
+              name="ellipsis-{{transaction.type === 'saving'? 'vertical':'horizontal'}}-circle-sharp" size="large">
+            </ion-icon>
+          </div>
+          <div class="metadata">
+            <div class="beneficiary">{{transaction.beneficiary}}</div>
+            <div class="date">{{transaction.date}}</div>
+          </div>
+          <div class="value {{transaction.type === 'saving'?'success':'danger'}}">{{transaction.type ===
+            'saving'?'+':'-'}}${{transaction.amount}}</div>
+
+        </div>
+      </div>
+
+    </div>
+    <div class="button">
+      <ion-button>
+        <ion-icon name="add-sharp"></ion-icon> Saving
+      </ion-button>
+    </div>
+  </div>
+
+</ion-content>

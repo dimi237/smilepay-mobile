@@ -15,13 +15,13 @@
       ],
       "rules": {
         "@angular-eslint/component-class-suffix": [
-          "error",
+          "warning",
           {
             "suffixes": ["Page", "Component"]
           }
         ],
         "@angular-eslint/component-selector": [
-          "error",
+          "warning",
           {
             "type": "element",
             "prefix": "app",
@@ -29,7 +29,7 @@
           }
         ],
         "@angular-eslint/directive-selector": [
-          "error",
+          "warning",
           {
             "type": "attribute",
             "prefix": "app",

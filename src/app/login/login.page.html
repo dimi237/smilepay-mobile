@@ -1,0 +1,28 @@
+<ion-progress-bar type="indeterminate" color="primary" *ngIf="isLoading"></ion-progress-bar>
+<ion-content>
+  <div class="title">
+    <h1> Login </h1>
+  </div>
+
+  <div class="illustration">
+    <img src="/assets/login.png" alt="">
+  </div>
+  <ion-card color="light">
+    <ion-card-content>
+      <ion-item fill="floating">
+        <ion-label position="floating">Username</ion-label>
+        <ion-input placeholder="Enter tour username" color="primary" [disabled]="isLoading" [(ngModel)]="userName">
+        </ion-input>
+      </ion-item>
+
+      <ion-item fill="floating">
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password" value="password" color="primary" [disabled]="isLoading" [(ngModel)]="password">
+        </ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <div class="button">
+    <ion-button expand="block" (click)="login()">Login</ion-button>
+  </div>
+</ion-content>

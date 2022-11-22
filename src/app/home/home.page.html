@@ -1,20 +1,87 @@
-<ion-header [translucent]="true">
+<ion-header collapse="fade">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-item lines="none">
+      <ion-avatar slot="start">
+        <img alt="Silhouette of a person's head" src="/assets/user.jpeg" />
+      </ion-avatar>
+      <ion-label>
+        <div class="label-container">
+          <div class="name">Hello {{user?.fullName}} !</div>
+          <div class="message">Welcome back</div>
+        </div>
+      </ion-label>
+      <div class="icon" slot="end">
+        <span></span>
+        <ion-icon name="notifications-sharp" color="primary"></ion-icon>
+      </div>
+    </ion-item>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="container">
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <div class="card">
+      <div class="card__front card__part">
+        <div class="card__header">
+          <img class="card__front-square card__square" src="/assets/chip.png">
+          <div class="card_title">Smile <span class="strong">Pay</span></div>
+        </div>
+        <div class="card__space">
+          <div class="card__info">{{user?.card?.username}}</div>
+          <div class="card__info">{{user?.card?.expiration}}</div>
+        </div>
+        <div class="card_number">{{user?.card?.number}}</div>
+      </div>
+
+      <div class="card__back card__part">
+        <div class="card__back-content">
+          <div class="card__secret">
+            <p class="card__secret--last">420</p>
+          </div>
+          <img class="card__back-square card__square" src="https://image.ibb.co/cZeFjx/little_square.png">
+          <img class="card__back-logo card__logo"
+            src="https://www.fireeye.com/partners/strategic-technology-partners/visa-fireeye-cyber-watch-program/_jcr_content/content-par/grid_20_80_full/grid-20-left/image.img.png/1505254557388.png">
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="transaction-container">
+    <div class="report" routerLink="/planning">
+      <div class="balance">
+        <div class="label">Your Balance</div>
+        <div class="total">${{user.card.balance}}</div>
+      </div>
+      <div class="trafic">
+        <div class="label">Trafic/Week</div>
+        <div class="value">
+          <ion-icon name="trending-down-outline" color="danger"></ion-icon>
+          <ion-label color="danger">-0.89%</ion-label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="transaction-container">
+    <div class="tansaction-title">
+      <div class="label">Transaction</div>
+      <div class="tag" routerLink="/transactions">See All</div>
+    </div>
+  </div>
+  <div class="list">
+    <div class="transaction-container" *ngFor="let transaction of transactions">
+      <div class="transcation-item">
+        <div class="logo"><img src="/assets/{{transaction.image}}.png" alt="{{transaction.image}}"></div>
+        <div class="metadata">
+          <div class="beneficiary">{{transaction.beneficiary}}</div>
+          <div class="date">{{transaction.date}}</div>
+        </div>
+        <div class="value {{transaction.type === 'saving'?'success':'danger'}}">{{transaction.type === 'saving'?'+':'-'}}${{transaction.amount}}</div>
+  
+      </div>
+    </div>
+
   </div>
 </ion-content>

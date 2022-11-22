@@ -1,19 +1,36 @@
-#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 55px;
 }
 
-#container strong {
+.transaction-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+
+  .tansaction-title {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 25px;
+    width: 100%;
+    font-size: 12px;
+
+    .label {
+      font-weight: bold;
+    }
+    .tag {
+      color: #8c8c8c;
+    }
+  }
+}
+
+.container strong {
   font-size: 20px;
   line-height: 26px;
 }
 
-#container p {
+.container p {
   font-size: 16px;
   line-height: 22px;
 
@@ -22,6 +39,303 @@
   margin: 0;
 }
 
-#container a {
+.container a {
   text-decoration: none;
+}
+ion-avatar {
+  width: 40px;
+  height: 40px;
+  margin: 0 10px 0 0 !important;
+}
+
+ion-label {
+  height: 100%;
+
+  .label-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 80%;
+    .name {
+      font-weight: bold;
+      font-size: 15px;
+    }
+    .message {
+      color: #a4adb0;
+      font-size: 10px;
+    }
+  }
+}
+
+.icon {
+  background-color: var(--background-global-color);
+  justify-content: center;
+  display: flex;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  align-items: center;
+  span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    position: fixed;
+    z-index: 2;
+    color: var(--background-global-color);
+    background: var(--ion-color-secondary-tint);
+    right: 24px;
+    top: 20px;
+  }
+}
+
+.title {
+  margin-bottom: 30px;
+  color: #162969;
+}
+
+.card {
+  width: 86vw;
+  height: 190px;
+  -webkit-perspective: 600px;
+  -moz-perspective: 600px;
+  perspective: 600px;
+}
+
+.card__part {
+  box-shadow: 1px 1px #aaa3a3;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 8px;
+
+  -webkit-transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -moz-transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -ms-transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -o-transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+}
+
+.card__front {
+  top: 0;
+  position: absolute;
+  z-index: 1000;
+  left: 0;
+  width: 86vw;
+  height: 190px;
+  background-image: linear-gradient(
+    to right bottom,
+    #1a3b40,
+    var(--ion-color-primary-shade),
+    var(--ion-color-primary-tint),
+    var(--ion-color-primary-shade),
+    #1a3b40
+  );
+  padding: 18px;
+}
+
+.card__back {
+  padding: 18px 0;
+  top: -15px;
+  width: 86vw;
+  height: 160px;
+  position: absolute;
+  z-index: 0;
+  left: 4px;
+  background-color: #e0c598;
+  transform: rotate(5deg);
+}
+
+.card__black-line {
+  margin-top: 5px;
+  height: 38px;
+  background-color: #303030;
+}
+
+.card__logo {
+  height: 16px;
+}
+
+.card__front-logo {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+}
+.card__square {
+  border-radius: 5px;
+  height: 30px;
+}
+
+.card_number {
+  display: block;
+  width: 100%;
+  word-spacing: 6px;
+  font-size: 18px;
+  letter-spacing: 5px;
+  color: #fff;
+  text-align: start;
+  margin-bottom: 20px;
+  margin-top: 5px;
+}
+
+.card__space {
+  display: flex;
+  justify-content: space-between;
+  justify-self: end;
+}
+
+.card__label {
+  font-size: 10px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 1px;
+}
+
+.card__info {
+  margin-bottom: 0;
+  margin-top: 5px;
+  font-size: 16px;
+  line-height: 18px;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.card__back-content {
+  padding: 15px 15px 0;
+}
+.card__secret--last {
+  color: #303030;
+  text-align: right;
+  margin: 0;
+  font-size: 14px;
+}
+
+.card__secret {
+  padding: 5px 12px;
+  background-color: #fff;
+  position: relative;
+}
+
+.card__secret:before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  height: calc(100% + 6px);
+  width: calc(100% - 42px);
+  border-radius: 4px;
+  background: repeating-linear-gradient(45deg, #ededed, #ededed 5px, #f9f9f9 5px, #f9f9f9 10px);
+}
+
+.card__back-logo {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+}
+
+.card__back-square {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+}
+
+.card__header {
+  display: flex;
+  height: 70%;
+  justify-content: space-between;
+}
+.card_title {
+  font-size: 15px;
+  color: #fff;
+}
+
+.report {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--background-global-color);
+  margin: 0 25px;
+  width: 100%;
+  padding: 10px;
+
+  .label {
+    color: var(--ion-color-medium);
+    font-weight: bold;
+    font-size: 10px;
+    margin: 5px 0;
+  }
+
+  .total {
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  .value {
+    background-color: var(--background-global-color);
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    ion-label {
+      font-size: 8px;
+    }
+  }
+
+  .tansaction-title {
+    display: flex;
+  }
+}
+
+.transcation-item {
+  display: flex;
+  background-color: var(--background-global-color);
+  justify-content: space-between;
+  margin: 0 25px;
+  width: 100%;
+  height: 70px;
+  padding: 10px;
+  .logo {
+    width: 15%;
+    height: 100%;
+    background-color: #eaeff0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    padding: 5px;
+    img {
+      height: 90%;
+    }
+  }
+
+  .metadata{
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    .beneficiary{
+      font-weight: bold;
+      font-size: 13px;
+    }
+    .date{
+      font-size: 11px;
+      color: var(--ion-color-medium);
+    }
+
+  }
+
+  .value{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 20%;
+  }
+
+}
+
+.list{
+  height: 40vh;
+  overflow-y: scroll;
 }

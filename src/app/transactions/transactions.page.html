@@ -1,0 +1,58 @@
+<ion-header collapse="fade">
+  <ion-toolbar>
+    <ion-item lines="none">
+      <ion-icon slot="start" name="chevron-back-outline" class="back" routerLink="/home"></ion-icon>
+      <ion-label> Transactions </ion-label>
+      <ion-icon name="ellipsis-horizontal-sharp"></ion-icon>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="container">
+    <div class="header">
+      <div class="text">
+        <h2 class="title">$271.560</h2>
+        <h4 class="date medium"><span class="success">+26.15%</span> than last month</h4>
+      </div>
+      <div class="button">
+        <ion-icon name="calendar-clear-sharp" color="primary"></ion-icon>
+        <ion-select interface="popover" value="monthly" placeholder="Select periodicity">
+          <ion-select-option value="daily">Daily</ion-select-option>
+          <ion-select-option value="weekly">Weekly</ion-select-option>
+          <ion-select-option value="monthly">Monthly</ion-select-option>
+        </ion-select>
+      </div>
+    </div>
+
+    <div class="chart">
+      <div echarts [options]="options" class="demo-chart"></div>
+    </div>
+
+    <div class="transaction-container">
+      <div class="tansaction-title">
+        <div class="label">
+          <ion-select interface="popover" value="expences" placeholder="Select type">
+            <ion-select-option value="expences">Expences</ion-select-option>
+            <ion-select-option value="saving">Saving</ion-select-option>
+          </ion-select>
+        </div>
+      </div>
+    </div>
+    <div class="list">
+      <div class="transaction-container" *ngFor="let transaction of transactions">
+        <div class="transcation-item">
+          <div class="logo"><img src="/assets/{{transaction.image}}.png" alt="{{transaction.image}}"></div>
+          <div class="metadata">
+            <div class="beneficiary">{{transaction.beneficiary}}</div>
+            <div class="date">{{transaction.date | date:'MMMM dd , YYYY'}} at {{ transaction.date | date:'HH:mm'}}</div>
+          </div>
+          <div class="value {{transaction.type === 'saving'?'success':'danger'}}">{{transaction.type ===
+            'saving'?'+':'-'}}${{transaction.amount}}</div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</ion-content>

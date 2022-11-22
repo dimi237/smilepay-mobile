@@ -1,35 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-planning',
+  templateUrl: './planning.page.html',
+  styleUrls: ['./planning.page.scss'],
 })
-export class HomePage {
-
-  user: any;
-  transactions: any[];
-
+export class PlanningPage implements OnInit {
+  balance: any;
+  transactions: any;
   constructor() { }
 
-  async ionViewWillEnter() {
-  }
 
-  ngOnInit(): any {
-    this.user = {
-      fullName: 'Dimitri Signe',
-      card: {
-        username: 'Dimitri Signe',
-        number: '3452 **** **** 6258',
-        expiration: '10/25',
-        balance: '592.323'
-      }
+  ngOnInit() {
+    this.balance = {
+      planified: 800,
+      sold: 5700,
+      diff: 10.5,
+      type: 'deficit',
     }
 
     this.transactions = [
       {
         ref: '001',
-        beneficiary: 'Adobe Photoshop',
+        beneficiary: 'Withdrawal',
         date: 1652172325000,
         type: 'expense',
         amount: 52,
@@ -37,7 +30,7 @@ export class HomePage {
       },
       {
         ref: '002',
-        beneficiary: 'Paypal',
+        beneficiary: 'Saving',
         date: 1651998747000,
         type: 'saving',
         amount: 20.1,
@@ -45,7 +38,7 @@ export class HomePage {
       },
       {
         ref: '003',
-        beneficiary: 'Paypal',
+        beneficiary: 'Withdrawal',
         date: 1651937547000,
         type: 'expense',
         amount: 30,
@@ -53,7 +46,7 @@ export class HomePage {
       },
       {
         ref: '004',
-        beneficiary: 'Qiwi',
+        beneficiary: 'Saving',
         date: 1651921227000,
         type: 'saving',
         amount: 15.5,
@@ -61,7 +54,7 @@ export class HomePage {
       },
       {
         ref: '001',
-        beneficiary: 'Adobe Photoshop',
+        beneficiary: 'Withdrawal',
         date: 1652172325000,
         type: 'expense',
         amount: 52,
@@ -69,7 +62,7 @@ export class HomePage {
       },
       {
         ref: '002',
-        beneficiary: 'Paypal',
+        beneficiary: 'Saving',
         date: 1651998747000,
         type: 'saving',
         amount: 20.1,
@@ -77,7 +70,7 @@ export class HomePage {
       },
       {
         ref: '003',
-        beneficiary: 'Paypal',
+        beneficiary: 'Withdrawal',
         date: 1651937547000,
         type: 'expense',
         amount: 30,
@@ -85,7 +78,7 @@ export class HomePage {
       },
       {
         ref: '004',
-        beneficiary: 'Qiwi',
+        beneficiary: 'Saving',
         date: 1651921227000,
         type: 'saving',
         amount: 15.5,
@@ -93,7 +86,7 @@ export class HomePage {
       },
       {
         ref: '001',
-        beneficiary: 'Adobe Photoshop',
+        beneficiary: 'Withdrawal',
         date: 1652172325000,
         type: 'expense',
         amount: 52,
@@ -101,7 +94,7 @@ export class HomePage {
       },
       {
         ref: '002',
-        beneficiary: 'Paypal',
+        beneficiary: 'Saving',
         date: 1651998747000,
         type: 'saving',
         amount: 20.1,
@@ -109,7 +102,7 @@ export class HomePage {
       },
       {
         ref: '003',
-        beneficiary: 'Paypal',
+        beneficiary: 'Withdrawal',
         date: 1651937547000,
         type: 'expense',
         amount: 30,
@@ -117,7 +110,7 @@ export class HomePage {
       },
       {
         ref: '004',
-        beneficiary: 'Qiwi',
+        beneficiary: 'Saving',
         date: 1651921227000,
         type: 'saving',
         amount: 15.5,
